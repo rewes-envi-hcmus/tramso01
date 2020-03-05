@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Trạm quan trắc số 1</title>
+	<link rel="stylesheet" type="text/css" href="css/cssforindex.css">
+</head>
+<body>
+	<table id="tb00">
+	<tr>
+		<th id="th01" colspan="3">TRẠM QUAN TRẮC MÔI TRƯỜNG SỐ 01</th><tr>
+
+		<tr>
+			<td colspan="2"><em>Địa điểm: Bộ môn VLHN - KTHN</em></td>
+			<td id="td10">Thời gian bắt đầu quan sát: <span style="color: yellow;" id="timeload"></span></td>
+		</tr>
+		<tr>
+			<td colspan="2"><em>Trường đại học Khoa học Tự nhiên Tp.Hồ Chí Minh</em></td>
+			<td id="td10">Thời gian đã quan sát: <span style="color: yellow;" id="timeloaded"></td>
+		</tr>
+
+	
+	</table>
+	<br>
+<!--Bảng thông tin hoạt động tại trạm-->
+
+	<table id="tb01">
+	<caption id="ct01"><b>Thông tin hoạt động tại trạm</b></caption>
+	
+	<tr>
+		<td colspan="2" id="td04"><b><span id="trangthai">Hệ đang tắt!</span></b></td>
+	</tr>
+	<tr>
+		<td colspan="2" id="td01">Thời gian hệ khởi chạy</td>
+	</tr>
+	<tr>
+		<td colspan="2" id="td031"><span id="timestart">Đang cập nhật...</span></td>
+	</tr>
+	<tr>
+		<td colspan="2" id="td01">Thời gian hiện tại:</td>
+	</tr>
+	<tr>
+		<td colspan="2" id="td03"><span id="timenow"></span></td>
+	</tr>
+	<tr>
+		<td colspan="2" id="td01">Thời gian hệ đã chạy</td>
+	</tr>
+	<tr>
+		<td colspan="2" id="td032"><span id="timerun">Đang cập nhật...</span></td>
+	</tr>
+	<tr>
+		<td colspan="2" id="td02">TRẠNG THÁI HOẠT ĐỘNG</td>
+	</tr>
+	<tr>
+		<td id="td05">NI myRIO</td>
+		<td id="td090"></td>
+	</tr>
+	<tr>
+		<td id="td05">Inspector<sup>+</sup></td>
+		<td id="td091"></td>
+	</tr>
+	<tr>
+		<td id="td05">Sensor nhiệt độ</td>
+		<td id="td092"></td>
+	</tr>
+	<tr>
+		<td id="td05">Sensor độ ẩm</td>
+		<td id="td093"></td>
+	</tr>
+	<tr>
+		<td id="td05">Sensor khí CO</td>
+		<td id="td094"></td>
+	</tr>
+	<tr>
+		<td id="td05">Sensor khí CH<sub>4</sub></td>
+		<td id="td095"></td>
+	</tr>
+	<tr>
+		<td id="td05">Sensor số 3</td>
+		<td id="td096"></td>
+	</tr>
+	</table>
+	<!--Bảng theo dõi số liệu thực-->
+	<table id="tb02">
+		<caption id="ct02"><b>Theo dõi số liệu tại trạm quan trắc số 01</b></caption>
+		<tr>
+			<td id ="td07" colspan="6"><b>Thời gian: <span id="time"></span></b></td>
+		</tr>
+		<tr><td id="td08">Suất liều:</td>
+			<td id="td09"><span id="dose1"><span id="dose"></span> &mu;Sv/h</span></td>
+			
+			<td id="td08">Nhiệt độ:</td>
+			<td id="td09"><span id=Te1><span id="Te"></span> <sup>o</sup>C</span></td>
+			
+			<td id="td08">Độ ẩm:</td>
+			<td id="td09"><span id="Hu1"><span id="Hu"></span> %</span></td>
+			
+		</tr>
+		<tr>
+			<td id="td08">CO:</td>
+			<td id="td09"><span id="sen11"><span id="sen1"> </span> ppm</span></td>
+			
+			<td id="td08">CH<sub>4</sub>:</td>
+			<td id="td09"><span id="sen21"><span id="sen2"> </span> ppm</span></td>
+			
+			<td id="td08">Sensor 3:</td>
+			<td id="td09"><span id="sen31"><span id="sen3"> </span> ppm</span></td>
+			
+		</tr>
+	</table>
+	<br>
+	<br>
+	
+	<!--Bảng tìm dữ liệu cao nhất gần nhất-->
+	<table id="tb02">
+		<caption id="ct03"><b>Số liệu cao nhất đạt được tại trạm quan trắc số 01 tại thời điểm gần nhất</b></caption>
+		<tr><td id="td08">Suất liều:</td>
+			<td id="td09"><span id="dosemax1"><span id="dosemax"></span> &mu;Sv/h</span></td>
+			<td id="td11"><span id="timedosemax1"><span id="timedosemax"></span></span></td>
+		
+			<td id="td08">Nhiệt độ:</td>
+			<td id="td09"><span id="temax1"><span id="temax"></span> <sup>o</sup>C</span></td>
+			<td id="td11"><span id="timetemax1"><span id="timetemax"></span></span></td>
+		</tr>
+
+
+		<tr>
+			<td id="td08">Độ ẩm:</td>
+			<td id="td09"><span id="humax1"><span id="humax"></span> %</span></td>
+			<td id="td11"><span id="timehumax1"><span id="timehumax"></span></span></td>
+			<td id="td08">CO:</td>
+			<td id="td09"><span id="sen1max1"><span id="sen1max"></span> ppm</span></td>
+			<td id="td11"><span id="timesen1max1"><span id="timesen1max"></span></span></td>
+		</tr>
+		
+		
+		<tr>
+			<td id="td08">CH<sub>4</sub>:</td>
+			<td id="td09"><span id="sen2max1"><span id="sen2max"></span> ppm</span></td>
+			<td id="td11"><span id="timesen2max1"><span id="timesen2max"></span></span></td>
+			<td id="td08">Sensor 3:</td>
+			<td id="td09"><span id="sen3max1"><span id="sen3max"></span> ppm</span></td>
+			<td id="td11"><span id="timesen3max1"><span id="timesen3max"></span></span></td>
+		</tr>
+	</table>
+	<br>
+
+	<!--Bảng tìm dữ liệu thấp nhất gần nhất-->
+	<table id="tb02">
+		<caption id="ct03"><b>Số liệu thấp nhất đạt được tại trạm quan trắc số 01 tại thời điểm gần nhất</b></caption>
+		<tr><td id="td08">Suất liều:</td>
+			<td id="td09"><span id="dosemin1"><span id="dosemin"></span> &mu;Sv/h</span></td>
+			<td id="td11"><span id=timedosemin1><span id="timedosemin"></span></span></td>
+		
+			<td id="td08">Nhiệt độ:</td>
+			<td id="td09"><span id="temin1"><span id="temin"></span> <sup>o</sup>C</span></td>
+			<td id="td11"><span id="timetemin1"><span id="timetemin"></span></span></td>
+		</tr>
+
+
+		<tr>
+			<td id="td08">Độ ẩm:</td>
+			<td id="td09"><span id="humin1"><span id="humin"></span> %</span></td>
+			<td id="td11"><span id="timehumin1"><span id="timehumin"></span></span></td>
+			<td id="td08">CO:</td>
+			<td id="td09"><span id="sen1min1"><span id="sen1min"></span> ppm</span></td>
+			<td id="td11"><span id="timesen1min1"><span id="timesen1min"></span></span></td>
+		</tr>
+		
+		
+		<tr>
+			<td id="td08">CH<sub>4</sub>:</td>
+			<td id="td09"><span id="sen2min1"><span id="sen2min"></span> ppm</span></td>
+			<td id="td11"><span id="timesen2min1"><span id="timesen2min"></span></span></td>
+			<td id="td08">Sensor 3:</td>
+			<td id="td09"><span id="sen3min1"><span id="sen3min"></span> ppm</span></td>
+			<td id="td11"><span id="timesen3min1"><span id="timesen3min"></span></span></td>
+		</tr>
+	</table>
+<p id="link" style="visibility: hidden;"></p>
+<script>
+	var a='http://nguyen-nulab.ddns.net:8001/web/updatert';
+	document.getElementById("link").innerHTML=a;
+</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!--thoigianbangdautrang-->
+	<script src="js/thoigianbangdautrang.js"></script>
+	<!--xacnhanhoatdong id: trangthai-->
+	<script src="js/xacnhanhoatdong.js"></script>
+	<!--thoigianbangtrangthai id: timestart timestop timerun-->
+	<script src="js/thoigianbangtrangthai.js"></script>
+	<script src="js/trangthaihoatdong.js"></script>
+	<script src="js/bangsolieuthuc.js"></script>
+	<script src="js/bangsosanh.js"></script>
+	<script src="js/hienthi.js"></script>
+</body>
+</html>

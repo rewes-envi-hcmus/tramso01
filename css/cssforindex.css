@@ -1,0 +1,36 @@
+body{background-image: url('Presentation1.PNG');}
+#h301{color: yellow; clear: none;}
+p{color: white; clear: none;}
+#div1{width: 300px;}
+
+#tb00{border: 2px solid white;width: 100%;}
+#tb01{border: 2px solid blue; float: right; width: 230px;}
+#tb02{border: 2px solid blue; margin: 0 auto;}
+
+#ct01{color: white; font-size: 17px;}
+#ct02{color: yellow; font-size: 20px;}
+#ct03{color: white; font-size: 17px;}
+
+td{color: white;}
+#td01{text-align: center;}
+#td02{text-align: center; color: yellow;}
+#td03{border: 2px solid lime; text-align: center; height: 22px;color: white;}
+#td031{border: 2px solid lime; text-align: center; height: 22px;color: blue; font-weight: bold;}
+#td032{border: 2px solid lime; text-align: center; height: 22px;color: blue; font-weight: bold;}
+#td04{border: 2px solid black;text-align: center; height: 22px;color: red;}
+#td05{border:none;text-align: center;background-color: navy;height:22px; width: 150px;}
+#td06{border:none;text-align: center;background-color: black;height:22px;}
+#td07{border: 2px solid blue; text-align: center; color: navy;font-size: 17px; background-color: white;height: 26px;} 
+#td08{border: none;background-color: navy;text-align: center;width: 80px;height: 24px; color: white;}
+#td09{border: 2px solid white;background-color: black;text-align: center;width: 120px;height: 24px; color: lime;}
+#td10{text-align: right;}
+#td11{text-align: center; border: 2px solid lime; width: 150px;color: white;}
+#td090{background-color: black;}
+#td091{background-color: black;}
+#td092{background-color: black;}
+#td093{background-color: black;}
+#td094{background-color: black;}
+#td095{background-color: black;}
+#td096{background-color: black;}
+
+#th01{font-weight: bold;color: yellow;text-align: center;}
