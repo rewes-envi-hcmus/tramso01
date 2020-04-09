@@ -47,7 +47,7 @@ function getLinkData(mode) {
 }
 
 doLoopAction();
-const b = getLinkData('dummy');
+const b = getLinkData('real');
 actionData();
 const data = getTimeWithFormat('dddd, DD/MM/YYYY - HH:mm:ss');
 this.setValuetoUI('timeload', data.replace(data.charAt(0), data.charAt(0).toUpperCase()));
