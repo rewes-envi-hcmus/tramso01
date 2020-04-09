@@ -47,7 +47,7 @@ function getLinkData(mode) {
 }
 
 doLoopAction();
-const b = getLinkData('real');
+const b = getLinkData('dummy');
 actionData();
 const data = getTimeWithFormat('dddd, DD/MM/YYYY - HH:mm:ss');
 this.setValuetoUI('timeload', data.replace(data.charAt(0), data.charAt(0).toUpperCase()));
@@ -103,6 +103,8 @@ function actionData() {
     arrObj.forEach(item => {
       if (item.dataId !== 'realtime') {
         if (!!data[item.dataId]) {
+          let loading = document.getElementById('loading');
+          loading.style.display = "none";
           setValuetoUI(item.dataId, data[item.dataId].toFixed(2));
           const varMax = item.dataId + 'max';
           const varMin = item.dataId + 'min';
@@ -118,22 +120,40 @@ function actionData() {
             setValuetoUI(('time' + varMin).toLowerCase(), getTimeWithFormat('HH:mm:ss - DD/MM/YYYY'));
           }
         } else {
+          let loading = document.getElementById('loading');
+          loading.style.display = "none";
           setValuetoUI(item.dataId, null);
           setColorBackgroundbyId(item.colorId, 'red', null);
           console.log('Cannot find ', data[item.dataId]);
         }
       } else {
-        setValuetoUI('timestart', moment().subtract(realtime, 's').format('HH : mm -- DD / MM / YYYY'));
-        setValuetoUI('timerun', moment.duration(realtime, "seconds").format("DD [ngày,] HH [giờ] mm [phút] ss [giây]"));
-        setColorBackgroundbyIdType('td031', 'wr');
-        setColorBackgroundbyIdType('td032', 'wr');
-        setColorBackgroundbyId(item.colorId, 'lime', null);
-        setValuetoUI('trangthai', 'Hệ đang hoạt động');
-        setColorBackgroundbyId('trangthai', null, 'lime');
+        if (!!realtime) {
+          let loading = document.getElementById('loading');
+          loading.style.display = "none";
+          setValuetoUI('timestart', moment().subtract(realtime, 's').format('HH : mm -- DD / MM / YYYY'));
+          setValuetoUI('timerun', moment.duration(realtime, "seconds").format("DD [ngày,] HH [giờ] mm [phút] ss [giây]"));
+          setColorBackgroundbyIdType('td031', 'wr');
+          setColorBackgroundbyIdType('td032', 'wr');
+          setColorBackgroundbyId(item.colorId, 'lime', null);
+          setValuetoUI('trangthai', 'Hệ đang hoạt động');
+          setColorBackgroundbyId('trangthai', null, 'lime');
+        } else {
+          let loading = document.getElementById('loading');
+          loading.style.display = "none";
+          setValuetoUI('timestart', 'Hệ đang tắt!');
+          setValuetoUI('timerun', 'Không xác định được!');
+          setColorBackgroundbyIdType('td031', 'wr');
+          setColorBackgroundbyIdType('td032', 'wr');
+          setValuetoUI('trangthai', 'Hệ đang tắt');
+          setColorBackgroundbyId('trangthai', null, 'red');
+          setColorBackgroundbyId('td090', 'red', null);
+        }
       }
     })
   })).catch(function (error) {
     console.log(error);
+    let loading = document.getElementById('loading');
+    loading.style.display = "none";
     setValuetoUI('timestart', 'Hệ đang tắt!');
     setValuetoUI('timerun', 'Không xác định được!');
     setColorBackgroundbyIdType('td031', 'wr');
