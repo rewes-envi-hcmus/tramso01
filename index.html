@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trang chủ dự án Rewes</title>
+    <link rel="stylesheet" href="public.css">
+    <link rel="stylesheet" href="trangchu.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="./function/canvasjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="./function/function.js"></script>
+    <!-- <script src="./function/main.js"></script> -->
+    
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo1">
+            <img src="./image/logoDuAn.png" sizes="80px">
+        </div>
+        <div class="noidung">
+            <h2>QUAN TRẮC MÔI TRƯỜNG THEO THỜI GIAN THỰC</h2>
+        </div>
+        <div class="logo2">
+            <img src="./image/logoTruong.png">
+            <img src="">
+
+        </div>
+    </div>
+    <div class="main">
+        <div class="hienthi">
+            <div class="card card1">
+                <div class="thoigian1">
+                    <div class="text texttime">THỜI GIAN THỰC:</div>
+                    <div id="realtime1"></div>
+                </div>
+            </div>
+            <div class="card suatlieu">
+                <div class="suatlieu1">
+                    <div class="text">SUẤT LIỀU</div>
+                    <div id="sensor1"></div>
+                </div>
+            </div>
+            <div class="card nhietdo">
+                <div class="nhietdo1">
+                    <div class="text">NHIỆT ĐỘ</div>
+                    <div id="sensor2"></div>
+                </div>
+            </div>
+            <div class="card doam">
+                <div class="doam1">
+                    <div class="text">ĐỘ ẨM</div>
+                    <div id="sensor3"></div>
+                </div>
+            </div>
+            <div class="card bui">
+                <div class="bui1">
+                    <div class="text">BỤI MỊN</div>
+                    <div id="sensor4"></div>
+                </div>
+            </div>
+            <div class="card co">
+                <div class="co1">
+                    <div class="text">KHÍ CO</div>
+                    <div id="sensor5"></div>
+                </div>
+            </div>
+            <div class="card ch4">
+                <div class="ch41">
+                    <div class="text">KHÍ CH4</div>
+                    <div id="ch44"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="bieudo">
+            <h3>Đồ thị theo thời gian thực:</h3>
+            <div id="chart1"></div>
+            <div class="groupbtn" style="text-align: center">
+                <button id="btn_phong_xa" class="btn btn-primary-spacing active" href="#">Suất liều</button>
+                <button id="btn_nhiet_do" class="btn" href="#">Nhiệt độ</button>
+                <button id="btn_do_am" class="btn" href="#">Độ ẩm</button>
+                <button id="btn_khi_co2" class="btn" href="#">Khí CO</button>
+                <button id="btn_khi_ch4" class="btn" href="#">Khí CH4</button>
+                <button id="btn_sensor_3" class="btn" href="#">Bụi mịn</button>
+            </div>
+        </div>
+        <!-- thanh menu -------------------------------------------------------->
+
+        <div class="slidebar" id="slidebar">
+            <!-- <div class="scroll"> -->
+            <div class="toggle" onclick="toggle_div()"></div>
+            <div class="tog">
+                <h2>Đăng nhập </h2>
+                <form id="inputbox" action="">
+                    <div class="inputbox">
+                        <input type="password" placeholder="Password" id="password">
+                        <input class="btn1" type="button" value="Login" onclick="onFormSubmit()">
+
+                    </div>
+                </form>
+            </div>
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="information.html">Thông tin</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+
+
+
+            <!-- </div> -->
+        </div>
+
+
+
+        <script type="text/javascript">
+
+
+            var correct_pass = '123456';
+            var inputPass = document.getElementById('password');
+            var formLogin = document.getElementById('inputbox');
+            inputPass.addEventListener('keydown', function (e) {
+                if (e.keyCode == 13) {
+                    onFormSubmit();
+                }
+            });
+            // if (formLogin.attachEvent) {
+            //     formLogin.attachEvent('submit', onFormSubmit);
+            // } else {
+            //     formLogin.addEventListener('submit', onFormSubmit);
+            // }
+
+            function onFormSubmit() {
+                var password = inputPass.value;
+                console.log('hihi', inputPass.value);
+                if (password == correct_pass) {
+                    window.location.assign("./Download.html");
+                } else {
+                    alert('nhap lai password');
+                }
+            }
+            // document.getElementById('keydown')
+
+        </script>
+        <script type="text/javascript">
+            function toggle_div() {
+                var element = document.getElementById('slidebar');
+                element.classList.toggle('active');
+            }
+        </script>
+
+        <!-- thanh menu -------------------------------------------------------->
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+        
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+
+<script>
+    let dose;
+let temperature;
+let humidity;
+let CO;
+let CH4;
+let dust;
+
+var firebaseConfig = {
+  apiKey: "AIzaSyDSsikGKgjcjLxVwEuAyMRqfrQO4iOesD4",
+  authDomain: "thehoang-8d8ee.firebaseapp.com",
+  databaseURL: "https://thehoang-8d8ee.firebaseio.com",
+  projectId: "thehoang-8d8ee",
+  storageBucket: "thehoang-8d8ee.appspot.com",
+  messagingSenderId: "804235375577",
+  appId: "1:804235375577:web:1e81bd7926f2d1501e9fc8",
+  measurementId: "G-9MKD8B9SGX",
+};
+
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+var fireBaseRef = new Firebase("https://thehoang-8d8ee.firebaseio.com");
+
+const database = firebase.database();
+
+//   const userId = firebase.auth().currentUser.uid;
+getData();
+async function getData() {
+  const rs = await firebase.database().ref().once("value").then((snaps) => {
+    dose = snaps.val().dose;
+    document.getElementById("sensor1").innerHTML = dose + " µSv/h";
+
+    temperature = snaps.val().temperature;
+    document.getElementById("sensor2").innerHTML = temperature + " °C";
+     
+    humidity = snaps.val().humidity;
+    document.getElementById("sensor3").innerHTML = humidity + " %";
+
+    CO = snaps.val().CO;
+    document.getElementById("sensor5").innerHTML = CO + " ppm";
+
+    CH4 = snaps.val().CH4;
+    document.getElementById("ch44").innerHTML = CH4 + " ppm";
+    
+    dust = snaps.val().dust;
+    document.getElementById("sensor4").innerHTML = dust + " µg/m3";
+    
+
+      
+    });
+}
+///////////////////////////////////////////////
+    
+
+
+
+    $(document).ready(function () {
+        var active = "phong_xa";
+        var dps = [],
+            chart,
+            temp;
+
+        function changeActive(id) {
+            $("#btn_phong_xa").removeClass("active");
+            $("#btn_nhiet_do").removeClass("active");
+            $("#btn_do_am").removeClass("active");
+            $("#btn_khi_co2").removeClass("active");
+            $("#btn_khi_ch4").removeClass("active");
+            $("#btn_sensor_3").removeClass("active");
+            $("#" + id + "").addClass("active");
+        }
+
+        function drawChart(title, titleY, labelY) {
+            chart = new CanvasJS.Chart("chart1", {
+                theme: "light2",
+                title: {
+                    text: title,
+                },
+                axisX: {},
+                axisY: {
+                    title: titleY,
+                    labelFormatter: function (e) {
+                        return e.value + " " + labelY;
+                    },
+                },
+                data: [
+                    {
+                        type: "line",
+                        markerSize: 10,
+                        dataPoints: dps,
+                    },
+                ],
+            });
+            chart.render();
+        }
+
+        //update chart
+        function updateChart(x, y) {
+            dps.push({
+                x: x,
+                y: y.value,
+                label: y.label,
+            });
+            if (dps.length > 25) {
+                dps.shift();
+            }
+            chart.render();
+        }
+        
+
+        function updateStatic(
+            createDate,
+            dose,
+            temperature,
+            humidity,
+            sensor1,
+            sensor2,
+            sensor3
+        ) {
+            $("#static_createDate").text(
+                new Date(createDate).toLocaleDateString("vi-VN") +
+                " " +
+                new Date(createDate).toLocaleTimeString("vi-VN")
+            );
+            $("#static_dose").text(dose);
+            $("#static_temperature").text(temperature);
+            $("#static_humidity").text(humidity);
+            $("#static_sensor1").text(sensor1);
+            $("#static_sensor2").text(sensor2);
+            $("#static_sensor3").text(sensor3);
+        }
+
+        drawChart("Suất liều", "dose", "μSv/h");
+        $("#btn_phong_xa").click(function () {
+            dps = [];
+            active = "phong_xa";
+            drawChart("Dose Chart", "dose", "μSv/h");
+            changeActive("btn_phong_xa");
+        });
+        $("#btn_nhiet_do").click(function () {
+            dps = [];
+            active = "nhiet_do";
+            drawChart("Nhiệt độ", "temperature", "°C");
+            changeActive("btn_nhiet_do");
+        });
+        $("#btn_do_am").click(function () {
+            dps = [];
+            active = "do_am";
+            drawChart("Độ ẩm", "humidity", "%");
+            changeActive("btn_do_am");
+        });
+        $("#btn_khi_co2").click(function () {
+            dps = [];
+            active = "khi_co2";
+            drawChart("Khí CO", "CO", "ppm");
+            changeActive("btn_khi_co2");
+        });
+        $("#btn_khi_ch4").click(function () {
+            dps = [];
+            active = "khi_ch4";
+            drawChart("Khí CH4", "CH4", "ppm");
+            changeActive("btn_khi_ch4");
+        });
+        $("#btn_sensor_3").click(function () {
+            dps = [];
+            active = "khi_ch4";
+            drawChart("Bụi mịn", "Bụi mịn", "µg/m3");
+            changeActive("btn_sensor_3");
+        });
+        // var socket = io.connect('http://localhost');
+        var x = 0;
+        setInterval(function () {
+            getData();
+            async function getData(){
+                const rs = await firebase.database().ref().once("value").then((snaps) => {
+                // var response = data;
+                x += 1;
+                var label = new Date().toLocaleTimeString("vi-VN");
+                updateStatic(
+                    new Date(),
+                    dose = snaps.val().dose,
+                    snaps.val().temperature,
+                    snaps.val().humidity,
+                    snaps.val().CO,
+                    snaps.val().CH4,
+                    snaps.val().dust
+                );
+                    getData();
+                    async function getData() {
+                        const rs = await firebase.database().ref().once("value").then((snaps) => {
+                    switch (active) {
+                        case "phong_xa":
+                            updateChart(x, { label: label, value: snaps.val().dose });
+                            break;
+                        case "nhiet_do":
+                            updateChart(x, { label: label, value: snaps.val().temperature });
+                            break;
+                        case "do_am":
+                            updateChart(x, { label: label, value: snaps.val().humidity });
+                            break;
+                        case "khi_co2":
+                            updateChart(x, { label: label, value: snaps.val().CO });
+                            break;
+                        case "khi_ch4":
+                            updateChart(x, { label: label, value: snaps.val().CH4 });
+                            break;
+                        case "sensor3":
+                            updateChart(x, { label: label, value: snaps.val().dust });
+                            break;
+                    }
+                })}
+    });
+}})});
+    var myVar = setInterval(setColor, 300);
+    function setColor() {
+        getData()
+
+    }
+</script>
+
+
+</body>
+
+</html>
